@@ -5,6 +5,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class PasswordCheckTest {
 
@@ -25,7 +26,18 @@ public class PasswordCheckTest {
         );
     }
 
-
-
-
+    @ParameterizedTest
+    @MethodSource
+    public void PasswordListCheckTestEx(String[] passwords, boolean expectedResult){
+        //WHEN
+        boolean result = PasswordCheckApp.passwordListCheck(passwords);
+        //THEN
+        assertEquals(expectedResult, result);
+    }
+    private static Stream <Arguments> PasswordListCheckTestEx(){
+        return Stream.of(
+                Arguments.of(new String[]{"cubebzu46vu","ucwbcze64bhcd"}, true),
+                Arguments.of(new String[]{"Studentfrfe","Studentczeuw76"}, false)
+        );
+    }
 }

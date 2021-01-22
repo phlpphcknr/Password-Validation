@@ -9,8 +9,13 @@ public class PasswordCheckApp {
     }
 
 
-    public static booleanpasswordListCheck(String[] passwords){
-        for()
+    public static boolean passwordListCheck(String[] passwords){
+        for(String pw: passwords) {
+            if (passwordCheck(pw) == false) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static boolean passwordCheck(String password){
@@ -42,7 +47,7 @@ public class PasswordCheckApp {
 
 
 
-    /*
+    /* Password check function which was googled by jonas
 
     String pattern = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}";
       System.out.println(passwd.matches(pattern));
